@@ -15,6 +15,8 @@ function main() {
     const mtl = new THREE.MeshBasicMaterial({color: 0xff0000});
     const box = new THREE.Mesh(geom, mtl);
 
+    const spanXRotation = document.querySelector("#xRotation");
+
     // Create the device orientation tracker
     const deviceOrientationControls = new THREEx.DeviceOrientationControls(camera);
 
@@ -83,6 +85,7 @@ function main() {
             camera.aspect = aspect;
             camera.updateProjectionMatrix();
         }
+        spanXRotation.textContent = camera.rotation.x;
         // box.rotation.y += 0.01;
         // box.rotation.x += 0.02;
 
