@@ -18,7 +18,7 @@ function main() {
     // Create the device orientation tracker
     const deviceOrientationControls = new THREEx.DeviceOrientationControls(camera);
 
-    arjs.add(box, -0.72, 0.001);
+    arjs.add(box, 0.001, 0.001);
 
 
     // arjs.fakeGps(-0.72, 51.05);
@@ -26,13 +26,13 @@ function main() {
     // Start the GPS
     arjs.startGps();
 
-    // setInterval(() => {
-    //     arjs.lonLatToWorldCoords(-0.72, 51.051);
-    //     console.log("Box: ", box);
-    //     console.log("Ar.js: ", arjs);
-    //     box.position.x = 0;
-    //     box.position.z = 50;
-    // }, 2000)
+    setInterval(() => {
+        // arjs.lonLatToWorldCoords(-0.72, 51.051);
+        console.log("Camera: ", camera);
+        // console.log("Ar.js: ", arjs);
+        // box.position.x = 0;
+        // box.position.z = 50;
+    }, 10000)
 
     requestAnimationFrame(render);
 
