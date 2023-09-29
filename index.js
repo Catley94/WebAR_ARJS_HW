@@ -85,7 +85,7 @@ function main() {
             camera.aspect = aspect;
             camera.updateProjectionMatrix();
         }
-        spanXRotation.textContent = camera.rotation.x;
+        // spanXRotation.textContent = camera.rotation.x;
         // box.rotation.y += 0.01;
         // box.rotation.x += 0.02;
 
