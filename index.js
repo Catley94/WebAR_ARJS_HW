@@ -14,6 +14,10 @@ function main() {
     const geom = new THREE.BoxGeometry(20, 20, 20);
     const mtl = new THREE.MeshBasicMaterial({color: 0xff0000});
     const box = new THREE.Mesh(geom, mtl);
+
+    // Create the device orientation tracker
+    const deviceOrientationControls = new THREEx.DeviceOrientationControls(camera);
+
     arjs.add(box, -0.72, 51.051);
 
 
@@ -81,6 +85,10 @@ function main() {
         }
         // box.rotation.y += 0.01;
         // box.rotation.x += 0.02;
+
+        // Update the scene using the latest sensor readings
+        deviceOrientationControls.update();
+
         cam.update();
         renderer.render(scene, camera);
         requestAnimationFrame(render);
