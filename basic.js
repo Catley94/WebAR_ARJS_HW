@@ -27,9 +27,9 @@ window.onload = () => {
                 z: 20
             });
             box.setAttribute('geometry', 'primitive: box');
-            box.setAttribute('material', { color: 'red' } );
+            box.setAttribute('material', { color: 'yellow' } );
             box.setAttribute('gps-new-entity-place', {
-                latitude: e.detail.position.latitude + 0.002,
+                latitude: e.detail.position.latitude + 0.0002,
                 longitude: e.detail.position.longitude
             });
 
@@ -39,10 +39,10 @@ window.onload = () => {
                 y: 20,
                 z: 20
             });
-            cylinder.setAttribute('geometry', 'primitive: box');
-            cylinder.setAttribute('material', { color: 'red' } );
+            cylinder.setAttribute('geometry', 'primitive: cylinder');
+            cylinder.setAttribute('material', { color: 'skyblue' } );
             cylinder.setAttribute('gps-new-entity-place', {
-                latitude: e.detail.position.latitude + 0.003,
+                latitude: e.detail.position.latitude + 0.0003,
                 longitude: e.detail.position.longitude
             });
 
