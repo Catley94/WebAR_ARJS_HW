@@ -18,7 +18,7 @@ function main() {
     // Create the device orientation tracker
     const deviceOrientationControls = new THREEx.DeviceOrientationControls(camera);
 
-    arjs.add(box, -0.72, 51.051);
+    arjs.add(box, -0.72, 0.001);
 
 
     // arjs.fakeGps(-0.72, 51.05);
