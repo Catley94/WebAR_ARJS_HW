@@ -20,7 +20,7 @@ function main() {
     // Create the device orientation tracker
     const deviceOrientationControls = new THREEx.DeviceOrientationControls(camera);
 
-    arjs.add(box, 0.001, 0.001);
+    // arjs.add(box, 0.001, 0.001);
 
 
     // arjs.fakeGps(-0.72, 51.05);
@@ -28,13 +28,31 @@ function main() {
     // Start the GPS
     arjs.startGps();
 
-    setInterval(() => {
-        // arjs.lonLatToWorldCoords(-0.72, 51.051);
-        console.log("Camera: ", camera);
-        // console.log("Ar.js: ", arjs);
-        // box.position.x = 0;
-        // box.position.z = 50;
-    }, 10000)
+    // setInterval(() => {
+    //     // arjs.lonLatToWorldCoords(-0.72, 51.051);
+    //     console.log("Camera: ", camera);
+    //     // console.log("Ar.js: ", arjs);
+    //     // box.position.x = 0;
+    //     // box.position.z = 50;
+    // }, 10000)
+
+    arjs.on("gpsupdate", async(pos) => {
+
+        arjs.add(box, pos.x + 0.001, pos.y);
+
+        // if(!fetched) {
+        //     const response = await fetch(`https://hikar.org/webapp/map?bbox=${pos.coords.longitude-0.01},${pos.coords.latitude-0.01},${pos.coords.longitude+0.01},${pos.coords.latitude+0.01}&layers=poi&outProj=4326`);
+        //
+        //     const geojson = await response.json();
+        //
+        //     geojson.features.forEach ( feature => {
+        //         const box = new THREE.Mesh(geom, mtl);
+        //         arjs.add(box, feature.geometry.coordinates[0], feature.geometry.coordinates[1]);
+        //     });
+        //
+        //     fetched = true;
+        // }
+    });
 
     requestAnimationFrame(render);
 
