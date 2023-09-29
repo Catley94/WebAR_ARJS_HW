@@ -14,12 +14,42 @@ function main() {
     const geom = new THREE.BoxGeometry(20, 20, 20);
     const mtl = new THREE.MeshBasicMaterial({color: 0xff0000});
     const box = new THREE.Mesh(geom, mtl);
-    arjs.add(box, -0.72, 51.051);
+    arjs.add(box, -0.73, 51.051);
 
 
-    arjs.fakeGps(-0.72, 51.05);
+    arjs.fakeGps(-0.73, 51.05);
 
     requestAnimationFrame(render);
+
+    // const rotationStep = THREE.Math.degToRad(2);
+    //
+    // let mousedown = false, lastX =0;
+    //
+    // window.addEventListener("mousedown", e=> {
+    //     mousedown = true;
+    // });
+    //
+    // window.addEventListener("mouseup", e=> {
+    //     mousedown = false;
+    // });
+    //
+    // window.addEventListener("mousemove", e=> {
+    //     if(!mousedown) return;
+    //     if(e.clientX < lastX) {
+    //         camera.rotation.y -= rotationStep;
+    //         console.log("Rotating");
+    //         if(camera.rotation.y < 0) {
+    //             camera.rotation.y += 2 * Math.PI;
+    //         }
+    //     } else if (e.clientX > lastX) {
+    //         camera.rotation.y += rotationStep;
+    //         console.log("Rotating greater");
+    //         if(camera.rotation.y > 2 * Math.PI) {
+    //             camera.rotation.y -= 2 * Math.PI;
+    //         }
+    //     }
+    //     lastX = e.clientX;
+    // });
 
     function render() {
         if(canvas.width != canvas.clientWidth || canvas.height != canvas.clientHeight) {
@@ -28,6 +58,8 @@ function main() {
             camera.aspect = aspect;
             camera.updateProjectionMatrix();
         }
+        box.rotation.y += 0.01;
+        box.rotation.x += 0.02;
         cam.update();
         renderer.render(scene, camera);
         requestAnimationFrame(render);
