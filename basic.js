@@ -42,7 +42,7 @@ window.onload = () => {
             cylinder.setAttribute('geometry', 'primitive: box');
             cylinder.setAttribute('material', { color: 'red' } );
             cylinder.setAttribute('gps-new-entity-place', {
-                latitude: e.detail.position.latitude - 0.002,
+                latitude: e.detail.position.latitude + 0.003,
                 longitude: e.detail.position.longitude
             });
 
