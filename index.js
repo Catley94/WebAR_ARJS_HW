@@ -22,7 +22,55 @@ function main() {
     // Start the GPS
     arjs.startGps();
 
+    // setInterval(() => {
+    //     arjs.lonLatToWorldCoords(-0.72, 51.051);
+    //     console.log("Box: ", box);
+    //     console.log("Ar.js: ", arjs);
+    //     box.position.x = 0;
+    //     box.position.z = 50;
+    // }, 2000)
+
     requestAnimationFrame(render);
+
+    // const rotationStep = THREE.MathUtils.degToRad(2);
+    //
+    // let mousedown = false, lastX = 0, lastY = 0;
+    //
+    // window.addEventListener("mousedown", e=> {
+    //     mousedown = true;
+    // });
+    //
+    // window.addEventListener("mouseup", e=> {
+    //     mousedown = false;
+    // });
+    //
+    // window.addEventListener("mousemove", e=> {
+    //     if(!mousedown) return;
+    //     if(e.clientX < lastX) {
+    //         camera.rotation.y -= rotationStep;
+    //         if(camera.rotation.y < 0) {
+    //             camera.rotation.y += 2 * Math.PI;
+    //         }
+    //     } else if (e.clientX > lastX) {
+    //         camera.rotation.y += rotationStep;
+    //         if(camera.rotation.y > 2 * Math.PI) {
+    //             camera.rotation.y -= 2 * Math.PI;
+    //         }
+    //     }
+    //     if(e.clientY < lastY) {
+    //         camera.rotation.x -= rotationStep;
+    //         if(camera.rotation.x < 0) {
+    //             camera.rotation.x += 2 * Math.PI;
+    //         }
+    //     } else if (e.clientY > lastY) {
+    //         camera.rotation.x += rotationStep;
+    //         if(camera.rotation.x > 2 * Math.PI) {
+    //             camera.rotation.x -= 2 * Math.PI;
+    //         }
+    //     }
+    //     lastX = e.clientX;
+    //     lastY = e.clientY;
+    // });
 
     function render() {
         if(canvas.width != canvas.clientWidth || canvas.height != canvas.clientHeight) {
@@ -31,8 +79,8 @@ function main() {
             camera.aspect = aspect;
             camera.updateProjectionMatrix();
         }
-        box.rotation.y += 0.01;
-        box.rotation.x += 0.02;
+        // box.rotation.y += 0.01;
+        // box.rotation.x += 0.02;
         cam.update();
         renderer.render(scene, camera);
         requestAnimationFrame(render);
