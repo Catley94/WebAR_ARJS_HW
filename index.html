@@ -2,9 +2,9 @@
 <html>
 <head>
     <title>AR.js A-Frame Location-based</title>
-    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="./lib/a-frame-1-3-0.js"></script>
     <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js'></script>
-    <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js'></script>
+    <script type='text/javascript' src='./lib/aframe-ar.js'></script>
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
 </head>
 <body>
@@ -14,6 +14,21 @@
 <!--    <a-entity material='color: yellow' geometry='primitive: sphere' gps-new-entity-place="latitude: 0.001; longitude: 0.0005" scale="10 10 10"></a-entity>-->
 <!--    <a-entity material='color: skyblue' geometry='primitive: sphere' gps-new-entity-place="latitude: 0.001; longitude: -0.0005" scale="10 10 10"></a-entity>-->
 <!--    <a-entity text="value: Hello World;" look-at="a-camera" gps-new-entity-place="latitude: 0.001; longitude: -0.00010" scale="50 50 50"></a-entity>-->
+
+    <!-- define your gltf asset -->
+    <a-assets>
+        <a-asset-item id="vrheadset" src="./public/images/VRHeadset.gltf"></a-asset-item>
+    </a-assets>
+    <a-gltf-model id="vrheadset_loaded"
+                  src="#vrheadset"
+                  gps-new-entity-place="latitude: 0.0001; longitude: 0.00"
+                  scale="1 1 1"
+                  animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
+    ></a-gltf-model>
+<!--    <a-assets>-->
+<!--        <a-asset-item id="vrheadset" src="VRHeadset.gltf"></a-asset-item>-->
+<!--    </a-assets>-->
+<!--    <a-gltf-model gltf-model="#vrheadset" position="-2 0 -1" scale="1 1 1"></a-gltf-model>-->
 </a-scene>
 <script src="./basic.js"></script>
 </body>
