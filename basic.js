@@ -5,7 +5,19 @@ window.onload = () => {
     const headset = document.querySelector("#vrheadset_loaded");
     const el = document.querySelector("[gps-new-camera]");
 
+    const box = document.querySelector("#box");
+
+    box.addEventListener("mouseenter", (e) => {
+        alert("Mouse entered");
+    });
+
+
     headset.addEventListener("click", (e) => {
+        console.log("Clicked");
+        alert("VR Clicked");
+    })
+
+    headset.addEventListener("touchstart", (e) => {
         console.log("Clicked");
         alert("VR Clicked");
     })
