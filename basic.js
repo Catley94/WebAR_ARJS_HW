@@ -1,4 +1,7 @@
 window.onload = () => {
+
+    let testEntityAdded = false;
+
     const headset = document.querySelector("#vrheadset_loaded");
     const el = document.querySelector("[gps-new-camera]");
 
@@ -9,25 +12,22 @@ window.onload = () => {
 
 
     el.addEventListener("gps-camera-update-position", async(e) => {
-        alert(`Got first GPS position: lon ${e.detail.position.longitude} lat ${e.detail.position.latitude}`);
-        const compoundEntity = document.createElement("a-entity");
-        compoundEntity.setAttribute('gps-new-entity-place', {
-            latitude: e.detail.position.latitude,
-            longitude: e.detail.position.longitude - 0.0001,
-        });
-        const box = document.createElement("a-box");
-        box.setAttribute("scale", {
-            x: 20,
-            y: 20,
-            z: 20
-        });
-        box.setAttribute('material', { color: 'red' } );
-        box.setAttribute("position", {
-            x : 0,
-            y : 20,
-            z: 0
-        } );
-        compoundEntity.appendChild(box);
-        document.querySelector("a-scene").appendChild(compoundEntity);
+        if(!testEntityAdded) {
+            alert(`Got first GPS position: lon ${e.detail.position.longitude} lat ${e.detail.position.latitude}`);
+            // Add a box to the north of the initial GPS position
+            const entity = document.createElement("a-box");
+            entity.setAttribute("scale", {
+                x: 20,
+                y: 20,
+                z: 20
+            });
+            entity.setAttribute('material', { color: 'red' } );
+            entity.setAttribute('gps-new-entity-place', {
+                latitude: e.detail.position.latitude + 0.001,
+                longitude: e.detail.position.longitude
+            });
+            document.querySelector("a-scene").appendChild(entity);
+        }
+        testEntityAdded = true;
     });
 };
