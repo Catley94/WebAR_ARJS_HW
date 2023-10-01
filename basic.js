@@ -9,7 +9,7 @@ window.onload = () => {
 
 
     el.addEventListener("gps-camera-update-position", async(e) => {
-        alert("Updated GPS Position");
+        alert(`Got first GPS position: lon ${e.detail.position.longitude} lat ${e.detail.position.latitude}`);
         const compoundEntity = document.createElement("a-entity");
         compoundEntity.setAttribute('gps-new-entity-place', {
             latitude: e.detail.position.latitude,
