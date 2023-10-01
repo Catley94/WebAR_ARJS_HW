@@ -15,7 +15,7 @@ window.onload = () => {
             alert(`Got first GPS position: lon ${e.detail.position.longitude} lat ${e.detail.position.latitude}`);
             alert(`Headset lat: ${headset.getAttribute("gps-new-entity-place").latitude} lon: ${headset.getAttribute("gps-new-entity-place").longitude}`);
             headset.setAttribute("gps-new-entity-place", {
-                latitude: e.detail.position.latitude + 0.002,
+                latitude: e.detail.position.latitude + 0.0001,
                 longitude: e.detail.position.longitude
             });
             alert(`Headset new lat: ${headset.getAttribute("gps-new-entity-place").latitude} new lon: ${headset.getAttribute("gps-new-entity-place").longitude}`);
