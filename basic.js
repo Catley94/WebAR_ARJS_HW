@@ -13,7 +13,9 @@ window.onload = () => {
     el.addEventListener("gps-camera-update-position", async(e) => {
         if(!testEntityAdded) {
             alert(`Got first GPS position: lon ${e.detail.position.longitude} lat ${e.detail.position.latitude}`);
+            alert(`Headset lat: ${headset.getAttribute("gps-new-entity-place").latitude} lon: ${headset.getAttribute("gps-new-entity-place").longitude}`);
             headset.setAttribute("gps-new-entity-place", `latitude: ${e.detail.position.latitude + 0.001}; longitude: ${e.detail.position.longitude}`);
+            alert(`Headset new lat: ${headset.getAttribute("gps-new-entity-place").latitude} new lon: ${headset.getAttribute("gps-new-entity-place").longitude}`);
             // Add a box to the north of the initial GPS position
             const entity = document.createElement("a-box");
             entity.setAttribute("scale", {
