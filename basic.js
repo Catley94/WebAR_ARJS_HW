@@ -16,7 +16,7 @@ window.onload = () => {
             alert(`Headset lat: ${headset.getAttribute("gps-new-entity-place").latitude} lon: ${headset.getAttribute("gps-new-entity-place").longitude}`);
             headset.setAttribute("gps-new-entity-place", {
                 latitude: e.detail.position.latitude + 0.001,
-                longitude: e.detail.position.longitude
+                longitude: e.detail.position.longitude + 0.001
             });
             alert(`Headset new lat: ${headset.getAttribute("gps-new-entity-place").latitude} new lon: ${headset.getAttribute("gps-new-entity-place").longitude}`);
             // Add a box to the north of the initial GPS position
@@ -30,6 +30,9 @@ window.onload = () => {
             entity.setAttribute('gps-new-entity-place', {
                 latitude: e.detail.position.latitude + 0.001,
                 longitude: e.detail.position.longitude
+            });
+            entity.addEventListener("click", (e) => {
+                alert("Box Clicked");
             });
             document.querySelector("a-scene").appendChild(entity);
         }
